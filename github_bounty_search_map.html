@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GitHub 赏金任务机会地图 · 2026-07-14</title>
+<style>
+  :root{
+    --bg:#f7f8fa; --card:#fff; --ink:#1f2329; --sub:#6b7280;
+    --line:#e5e7eb; --blue:#2563eb; --green:#16a34a; --amber:#d97706; --red:#dc2626;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:-apple-system,"Segoe UI","PingFang SC",sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;padding:24px}
+  .wrap{max-width:1080px;margin:0 auto}
+  h1{font-size:24px;margin-bottom:6px}
+  .meta{color:var(--sub);font-size:13px;margin-bottom:20px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 20px;margin-bottom:16px}
+  .card h2{font-size:17px;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+  .tag{font-size:11px;font-weight:600;padding:2px 8px;border-radius:99px;color:#fff}
+  .t-p0{background:var(--red)} .t-p1{background:var(--amber)} .t-p2{background:var(--blue)} .t-info{background:var(--sub)}
+  table{width:100%;border-collapse:collapse;font-size:13px}
+  th,td{text-align:left;padding:9px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{color:var(--sub);font-weight:600;font-size:12px}
+  td a{color:var(--blue);text-decoration:none} td a:hover{text-decoration:underline}
+  .pill{display:inline-block;font-size:11px;padding:1px 7px;border-radius:6px;background:#eef2ff;color:#3730a3;margin:1px 2px 1px 0}
+  .pill.usd{background:#dcfce7;color:#166534}
+  .pill.token{background:#fef3c7;color:#92400e}
+  .pill.points{background:#e0e7ff;color:#3730a3}
+  .pill.tbd{background:#f3f4f6;color:#6b7280}
+  .note{background:#fffbeb;border-left:3px solid var(--amber);padding:10px 12px;font-size:13px;color:#92400e;border-radius:0 8px 8px 0;margin-top:10px}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  @media(max-width:720px){.grid{grid-template-columns:1fr}}
+  .src{font-size:12px;color:var(--sub);margin-top:8px}
+  .src a{color:var(--blue);text-decoration:none}
+  ul{margin:8px 0 0 18px;font-size:13px}
+  li{margin-bottom:4px}
+  .flag{color:var(--red);font-weight:600}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>GitHub 赏金任务机会地图</h1>
+  <div class="meta">搜索时间 2026-07-14 · 来源：WebSearch 外网情报 + GitHub Search REST API 实时拉取 · 分层按「确定性结算」与「竞争强度」双维度</div>
+
+  <div class="card">
+    <h2><span class="tag t-info">总览</span> 三条赛道，确定性天差地别</h2>
+    <table>
+      <tr><th>赛道</th><th>结算货币</th><th>规模</th><th>竞争</th><th>我的适配度</th></tr>
+      <tr><td><b>平台型</b><br>Algora / Polar / Opire / MergeOS</td><td><span class="pill usd">真实 USD</span> / Stripe</td><td>大</td><td>中</td><td>高（已验证流程）</td></tr>
+      <tr><td><b>仓库标签型</b><br>label:bounty / reward</td><td>混合（USD/代币/积分）</td><td>超大（3808+1932 open）</td><td>极高（红皇后效应）</td><td>中（需逐案筛）</td></tr>
+      <tr><td><b>微任务流</b><br>agent-playground 同类</td><td><span class="pill usd">USD</span></td><td>已枯竭</td><td>饱和</td><td>低（池死）</td></tr>
+    </table>
+    <div class="note">辩证点：池子「总量大」不等于「你能吃到」。agent-playground 的教训是搜索索引延迟 + 数十 agent 抢食，真实未认领池可以瞬间归零。下面只列「已验证有支付记录」或「低竞争可进场」的具体目标。</div>
+  </div>
+
+  <div class="card">
+    <h2><span class="tag t-p0">P0</span> 真实美元流：Algora.io（最优先）</h2>
+    <table>
+      <tr><th>组织 / Issue</th><th>赏金</th><th>状态信号</th><th>来源</th></tr>
+      <tr><td>spaceandtimelabs (sxt-proof-of-sql)<br>#183 nullable column support</td><td><span class="pill usd">$10,000</span></td><td>Open，4 个 open bounty 共 $10,429，有 13 个已发记录</td><td><a href="https://app.algora.io/org/spaceandtimelabs">app.algora.io/org/spaceandtimelabs</a></td></tr>
+      <tr><td>golemcloud/golem #2082<br>Update Golem Desktop 1.3</td><td><span class="pill usd">$1,500</span></td><td>近期已发（13 天前）</td><td><a href="https://console.algora.io/solve">console.algora.io/solve</a></td></tr>
+      <tr><td>zivergetech/retake-tech #21<br>Scheduled Generation Top 40</td><td><span class="pill usd">$2,000</span></td><td>近期已发（3 天前）</td><td>同上</td></tr>
+      <tr><td>highlight (YC W23)<br>#8635/#8614/#6775</td><td><span class="pill usd">$100–300</span></td><td>4 open bounty 共 $670，28 已发</td><td><a href="https://tv.algora.io/highlight">tv.algora.io/highlight</a></td></tr>
+    </table>
+    <div class="note"><span class="flag">信息源冲突需实测</span>：我的历史记忆（PR #7571）记录 Algora 需绑定 Stripe + KYC 才能收款；但 2026 年 dev.to 实测文称「no KYC, just GitHub」。两种可能：平台已简化小额入驻，或大额仍要税务信息。行动前先登录 console.algora.io/solve 实测一条低额 bounty 的收款链路，消除不确定性再放大。</div>
+  </div>
+
+  <div class="card">
+    <h2><span class="tag t-p1">P1</span> 低门槛微任务流（替代已死的 hiragana）</h2>
+    <table>
+      <tr><th>仓库</th><th>赏金</th><th>特征</th><th>来源</th></tr>
+      <tr><td>Riona-AI-Agent</td><td><span class="pill usd">$50</span></td><td>4222 stars，活跃 $50 微任务，模式类似 agent-playground 但池子未必饱和</td><td><a href="https://dev.to/noraxai/10-github-bounty-issues-you-can-solve-this-weekend-2026-ak">dev.to/noraxai</a></td></tr>
+      <tr><td>HELPDESK.AI</td><td><span class="pill points">GSSoC 积分</span></td><td>已有 PR #3839 在审，可再接 GSSoC 2026 任务叠加</td><td>本会话历史 + <a href="https://dev.to/noraxai/10-github-bounty-issues-you-can-solve-this-weekend-2026-ak">dev.to</a></td></tr>
+      <tr><td>relayhop/sn-monetization-runtime</td><td><span class="pill tbd">待查</span></td><td>#128/#129 今天新建，c=1，Nostr 相关，竞争极低</td><td>GitHub API (label:bounty)</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <h2><span class="tag t-p2">P2</span> 待验证 / 高门槛</h2>
+    <table>
+      <tr><th>目标</th><th>赏金</th><th>备注</th><th>来源</th></tr>
+      <tr><td>tenstorrent/tt-metal</td><td><span class="pill usd">$2,500–10,000</span></td><td>硬件/AI 内核，门槛高，需深 C++/MLIR 经验</td><td>dev.to/noraxai</td></tr>
+      <tr><td>SecureBananaLabs</td><td><span class="pill usd">$700–780</span></td><td>225 stars，安全向</td><td>dev.to/noraxai</td></tr>
+      <tr><td>counterspec/isnad</td><td><span class="pill usd">100–1000 USDC</span></td><td>crypto 支付，安全检测规则类</td><td><a href="https://openclawlog.com/2026/03/01/github-bounties-march-2026-4395-total">openclawlog</a></td></tr>
+      <tr><td>Polar.sh (polarsource/polar)</td><td><span class="pill usd">协商</span></td><td>Issue Funding 平台，#6631 WordPress 插件 bounty</td><td><a href="https://gitmemories.com/polarsource/polar/issues/6631">gitmemories</a></td></tr>
+      <tr><td>Opire</td><td>任意</td><td>任何开发者可在任意 issue 放赏金，PR merge 时 Stripe/crypto 支付</td><td>dev.to/timmothybuilder</td></tr>
+      <tr><td>MergeOS (mergeos-bounties)</td><td><span class="pill token">MRG</span></td><td>验证他人 PR 赚奖励，低竞争，不需写代码</td><td>本会话历史记忆</td></tr>
+    </table>
+    <div class="note">避坑：Scottcjn/rustchain-bounties 等 RTC token 类、ZK Bounty Radar 中标注「saturated」的高额 issue，前者近乎无变现价值，后者已被大量 agent 占满，均不建议优先。</div>
+  </div>
+
+  <div class="card">
+    <h2><span class="tag t-info">研判</span> 三个该正视的事实</h2>
+    <div class="grid">
+      <div>
+        <b>红皇后效应</b>
+        <ul>
+          <li>bounty 总数万级，但被无数自动 agent（BountyScout 等）实时扫食</li>
+          <li>「未认领」窗口以分钟计，索引延迟会制造虚假空池</li>
+          <li>对策：认领前实时 GET 校验 comments，不依赖搜索快照</li>
+        </ul>
+      </div>
+      <div>
+        <b>不对称风险收益</b>
+        <ul>
+          <li>Algora 真实 USD + 有 completed 记录 = 确定性高</li>
+          <li>Aigen 代币 + 失活创始人 = 确定性低（已证伪）</li>
+          <li>RTC/crypto token = 近乎零价值</li>
+        </ul>
+      </div>
+      <div>
+        <b>KYC 矛盾</b>
+        <ul>
+          <li>记忆：Algora 需 Stripe+KYC</li>
+          <li>外网 2026 文：no KYC, just GitHub</li>
+          <li>必须实测，不能假设任一方为真</li>
+        </ul>
+      </div>
+      <div>
+        <b>我的现实锚点</b>
+        <ul>
+          <li>已握 10 个 hiragana PR（#6989–6998）等合入 ≈$500</li>
+          <li>新产出应转向真实 USD 流，而非再投饱和微任务</li>
+          <li>写操作必须走 fork（上游 404 坑已踩）</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2><span class="tag t-info">下一步</span> 待圣上定夺</h2>
+    <ul>
+      <li><b>A</b>：实测 Algora.io 收款链路（登录 console.algora.io/solve，挑 $100 内低额 bounty 跑通 KYC 疑问），通了就批量接 spaceandtimelabs / highlight 等活跃流。</li>
+      <li><b>B</b>：扫 Riona-AI-Agent 未认领 $50 微任务，复制 agent-playground 范式（但先实时校验池未饱和）。</li>
+      <li><b>C</b>：深挖 relayhop/sn-monetization-runtime #128/#129 与 Vikingr2023 聚合清单里 c=0 的指向仓库，捡低竞争漏。</li>
+      <li><b>D</b>：仅维持现状，等 10 个 hiragana PR 合入落袋（路径 A 监控已在跑）。</li>
+    </ul>
+  </div>
+
+  <div class="src">
+    数据来源：
+    <a href="https://console.algora.io/solve">Algora console</a> ·
+    <a href="https://app.algora.io/org/spaceandtimelabs">Algora spaceandtimelabs</a> ·
+    <a href="https://dev.to/noraxai/10-github-bounty-issues-you-can-solve-this-weekend-2026-ak">dev.to/noraxai</a> ·
+    <a href="https://dev.to/timmothybuilder/how-to-find-and-win-open-source-bounties-in-2026-2b4b">dev.to/timmothybuilder</a> ·
+    <a href="https://openclawlog.com/2026/03/01/github-bounties-march-2026-4395-total">openclawlog</a> ·
+    <a href="https://gitmemories.com/polarsource/polar/issues/6631">gitmemories Polar</a> ·
+    GitHub Search REST API（label:bounty / label:reward / title:bounty，2026-07-14 实时）。
+  </div>
+</div>
+</body>
+</html>

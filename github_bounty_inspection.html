@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GitHub Bounty 全链路巡检报告</title>
+<style>
+  :root{
+    --bg:#ffffff; --panel:#f7f9fb; --ink:#1a2230; --muted:#5b6678;
+    --line:#e3e8ef; --accent:#2f6df0; --green:#1f9d55; --amber:#c98a00;
+    --red:#d23b3b; --purple:#7a4fd0;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:-apple-system,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
+    background:var(--bg);color:var(--ink);line-height:1.6;font-size:14px}
+  .wrap{max-width:1080px;margin:0 auto;padding:32px 24px 64px}
+  header{border-bottom:2px solid var(--ink);padding-bottom:14px;margin-bottom:24px}
+  h1{font-size:24px;margin:0 0 4px}
+  .sub{color:var(--muted);font-size:13px}
+  h2{font-size:18px;margin:32px 0 12px;padding-left:10px;border-left:4px solid var(--accent)}
+  h3{font-size:15px;margin:20px 0 8px}
+  table{width:100%;border-collapse:collapse;margin:10px 0;font-size:13px}
+  th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+  th{background:var(--panel);font-weight:600}
+  tr:nth-child(even) td{background:#fcfdff}
+  .pill{display:inline-block;padding:2px 9px;border-radius:11px;font-size:12px;font-weight:600;color:#fff;white-space:nowrap}
+  .p-open{background:var(--amber)} .p-merged{background:var(--green)}
+  .p-closed{background:var(--red)} .p-clean{background:var(--green)}
+  .p-unstable{background:var(--amber)} .p-skip{background:var(--muted)}
+  .kpi{display:flex;gap:14px;flex-wrap:wrap;margin:16px 0}
+  .card{flex:1;min-width:180px;background:var(--panel);border:1px solid var(--line);
+    border-radius:10px;padding:14px 16px}
+  .card .n{font-size:26px;font-weight:700;line-height:1.1}
+  .card .l{color:var(--muted);font-size:12px;margin-top:4px}
+  .callout{border:1px solid var(--line);border-left:4px solid var(--amber);
+    background:#fffaf0;border-radius:8px;padding:12px 16px;margin:14px 0}
+  .callout.red{border-left-color:var(--red);background:#fff5f5}
+  .callout.green{border-left-color:var(--green);background:#f3fbf5}
+  .bar{height:26px;border-radius:6px;background:var(--accent);color:#fff;
+    display:flex;align-items:center;padding:0 10px;font-size:12px;font-weight:600;margin:6px 0;white-space:nowrap}
+  .bar.a{background:var(--amber)} .bar.b{background:var(--purple)}
+  .bar.c{background:var(--muted)} .bar.d{background:var(--red)}
+  .bar.e{background:var(--green)}
+  .src{color:var(--muted);font-size:12px}
+  code{background:#eef2f7;padding:1px 5px;border-radius:4px;font-size:12px}
+  .foot{margin-top:36px;border-top:1px solid var(--line);padding-top:14px;color:var(--muted);font-size:12px}
+  ul{margin:8px 0;padding-left:20px}
+  li{margin:4px 0}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <h1>GitHub Bounty 全链路巡检报告</h1>
+  <div class="sub">巡检时间：2026-07-13 22:28 (GMT+8) ｜ 账户：minhchee ｜ 数据来源：GitHub API（mcp__github 实时拉取）</div>
+</header>
+
+<div class="kpi">
+  <div class="card"><div class="n">5</div><div class="l">在管平台</div></div>
+  <div class="card"><div class="n">19</div><div class="l">活跃 PR / 提交</div></div>
+  <div class="card"><div class="n">$50</div><div class="l">确定待结算 USD</div></div>
+  <div class="card"><div class="n">6000</div><div class="l">待结算 AIGEN（高风险）</div></div>
+  <div class="card"><div class="n">12</div><div class="l">善意沉没 PR（无奖励合约）</div></div>
+</div>
+
+<h2>一、全链路状态总表</h2>
+<table>
+  <tr><th>平台</th><th>PR / 任务</th><th>状态</th><th>合并态</th><th>价值</th><th>风险</th></tr>
+  <tr>
+    <td>Aigen Protocol</td>
+    <td>15 个 PR（#76~#104）</td>
+    <td><span class="pill p-open">全部 OPEN</span></td>
+    <td>未合并</td>
+    <td>3 个有合约：6000 AIGEN<br>12 个无合约：0</td>
+    <td><span class="pill p-closed">高</span> 创始人 2026-05-13 后失活</td>
+  </tr>
+  <tr>
+    <td>agent-playground</td>
+    <td>#6656 JSDoc</td>
+    <td><span class="pill p-open">OPEN</span></td>
+    <td><span class="pill p-clean">clean</span></td>
+    <td>$50（USD）</td>
+    <td><span class="pill p-unstable">低</span> 等维护者合并</td>
+  </tr>
+  <tr>
+    <td>HELPDESK.AI</td>
+    <td>#3839 全局异常处理器</td>
+    <td><span class="pill p-open">OPEN</span></td>
+    <td><span class="pill p-unstable">unstable</span></td>
+    <td>GSSoC 积分（未定价）</td>
+    <td><span class="pill p-unstable">中</span> 受 GSSoC 周期约束</td>
+  </tr>
+  <tr>
+    <td>Algora.io</td>
+    <td>#7571 APIKey 限流</td>
+    <td><span class="pill p-closed">CLOSED</span></td>
+    <td>已关闭未合并</td>
+    <td>$0（原 $350）</td>
+    <td><span class="pill p-closed">已损失</span> 竞争饱和，bot 关闭</td>
+  </tr>
+  <tr>
+    <td>MergeOS</td>
+    <td>验证任务（无 PR）</td>
+    <td>无 minhchee PR</td>
+    <td>—</td>
+    <td>MRG 余额未核实</td>
+    <td><span class="pill p-skip">未核实</span> 奖励走平台账本</td>
+  </tr>
+</table>
+
+<h2>二、Aigen Protocol 深度拆解（最大暴露点）</h2>
+
+<h3>2.1 奖励账本真相（contributions.json）</h3>
+<div class="callout red">
+  账本中已付款对象：worjs-codex-earner（4300）、nicbstme（9000）、godd-ctrl（300），合计约 13,600 AIGEN。<br>
+  <b>minhchee 在账本中一次都没有出现</b>，最后一条 reviewer 记录停留在 <code>2026-05-13</code>。结论：15 个 PR 全部未被审阅、未入账、未支付。
+</div>
+
+<h3>2.2 任务契约对齐（tasks.json）</h3>
+<p>把 15 个 PR 与 tasks.json 比对，暴露一个结构性陷阱：</p>
+<table>
+  <tr><th>PR</th><th>内容</th><th>对应任务</th><th>奖励契约</th></tr>
+  <tr><td>#100</td><td>发单 Web UI</td><td>Task #24</td><td><span class="pill p-open">3000 AIGEN</span></td></tr>
+  <tr><td>#102</td><td>品牌套件</td><td>Task #20</td><td><span class="pill p-open">2000 AIGEN</span></td></tr>
+  <tr><td>#104</td><td>平台对比研究</td><td>Task #21</td><td><span class="pill p-open">1000 AIGEN</span></td></tr>
+  <tr style="color:var(--muted)"><td>#76 #78 #80 #82</td><td>AIP-1/2/3/4 韩译</td><td>无任务</td><td>无契约</td></tr>
+  <tr style="color:var(--muted)"><td>#84 #86 #88 #90 #92 #94 #96 #98</td><td>根文档韩译（README/协议/API 等）</td><td>无任务</td><td>无契约</td></tr>
+</table>
+<div class="callout">
+  <b>关键洞察：</b>12 个翻译 PR 在 tasks.json 里没有任何悬赏任务（唯一被奖励的翻译是 Task #5 Manifesto，已被 worjs 认领并支付）。这些 PR 是「好人好事」，<b>即便创始人复活也没有强制支付依据</b>。真正挂了奖励合约的只有 #100/#102/#104，合计 6000 AIGEN，全部卡在失活创始人身上。
+</div>
+
+<h3>2.3 价值暴露（按类别）</h3>
+<div class="bar e" style="width:13%">确定待结算 $50</div>
+<div class="bar b" style="width:100%">AIGEN 待结算 6000（高不确定性）</div>
+<div class="bar c" style="width:60%">善意沉没 12 PR（无回报）</div>
+<div class="bar d" style="width:35%">已损失 Algora $350</div>
+<div class="bar a" style="width:25%">MergeOS MRG（未核实）</div>
+
+<h2>三、风险矩阵（辩证视角）</h2>
+<table>
+  <tr><th>维度</th><th>判断</th></tr>
+  <tr><td>集中度</td><td>19 个提交中 15 个压在单一失活维护者，单点故障明显。记忆中的「80% 合并率」已被 0% 现实证伪，历史表现不预示未来。</td></tr>
+  <tr><td>契约完整性</td><td>12 个 PR 缺乏任务契约，属「无合同劳动」。教训：动手前应先在 tasks.json 确认任务存在，而非事后假设翻译即奖励。</td></tr>
+  <tr><td>流动性</td><td>6000 AIGEN 的链上流动性与法币价值未验证，存在「名义有钱、实际难变现」风险。</td></tr>
+  <tr><td>周期约束</td><td>HELPDESK.AI 走 GSSoC 2026 渠道，有项目截止日，逾期未合即归零；Vercel 检查「失败」实为授权门禁，非代码冲突。</td></tr>
+  <tr><td>沉没成本</td><td>Algora #7571 已关闭，投出的 4 commit / 252 行属沉没；竞争饱和赛道不应再加注。</td></tr>
+</table>
+
+<h2>四、行动建议（按优先级）</h2>
+<table>
+  <tr><th>优先级</th><th>动作</th><th>对象</th><th>预期</th></tr>
+  <tr><td>P0</td><td>在 Aigen 仓库开 issue 或 @ 创始人，要求审阅 #100/#102/#104（仅这 3 个有合约）</td><td>Aigen</td><td>唤醒支付路径或确认放弃</td></tr>
+  <tr><td>P1</td><td>确认 GSSoC 2026 截止日，向 mentors 推送 #3839 提醒；澄清 Vercel 是授权门禁</td><td>HELPDESK.AI</td><td>赶在周期结束前合入</td></tr>
+  <tr><td>P1</td><td>对 agent-playground #6656 做一次温和催合（维护者）</td><td>agent-playground</td><td>落袋 $50</td></tr>
+  <tr><td>P2</td><td>登录 MergeOS 核实 MRG 余额；如验证任务仍有利可图可继续</td><td>MergeOS</td><td>确认未结算收益</td></tr>
+  <tr><td>P3</td><td>12 个无契约翻译 PR 标记为「善意资产」，停止追加；不计入收益预期</td><td>Aigen</td><td>心理账户清零</td></tr>
+  <tr><td>—</td><td>Algora 路径正式封存，不再投入</td><td>Algora</td><td>止损</td></tr>
+</table>
+
+<div class="callout green">
+  <b>一句话研判：</b>这条链路的「确定性收入」只有 agent-playground 的 $50；Aigen 的 6000 AIGEN 是悬在失活维护者头上的或有资产，且其中 80% 的 PR 根本无合同。真正该修的不是 PR，而是「先定契约、再下注」的作业纪律。
+</div>
+
+<h2>五、数据来源</h2>
+<ul>
+  <li>GitHub Search API：<code>repo:Aigen-Protocol/aigen-protocol author:minhchee</code> → 15 个 PR，全部 open。</li>
+  <li>GitHub PR API：<code>pull_request_read</code> 拉取 #6656、#3839、#7571 详情与 check_runs。</li>
+  <li>Aigen <code>contributions.json</code>（root）：奖励账本，无 minhchee 记录。</li>
+  <li>Aigen <code>tasks.json</code>（root）：任务契约，仅 #20/#21/#24 与本人 PR 对应。</li>
+  <li>上述数据均于 2026-07-13 通过 GitHub MCP 连接器实时获取，未做缓存假设。</li>
+</ul>
+
+<div class="foot">
+  报告由阿布生成 ｜ 圣上可据此决定催合、封存或追加动作。注：AIGEN 法币价值与链上流动性需另行核实，本报告不对其估值作断言。
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<style>body{font-family:-apple-system,"Segoe UI",Roboto,"PingFang SC","Microsoft YaHei",sans-serif;margin:0;background:#f5f6f8;color:#1f2328}header{background:#1f2328;color:#fff;padding:22px 28px}h1{margin:0;font-size:20px}h2{font-size:15px;color:#57606a;margin:26px 0 10px}.wrap{max-width:920px;margin:0 auto;padding:24px}.card{background:#fff;border:1px solid #d0d7de;border-radius:8px;padding:18px 20px;margin:14px 0;box-shadow:0 1px 2px rgba(0,0,0,.04)}.k{display:inline-block;background:#ddf4ff;color:#0969da;border-radius:4px;padding:1px 7px;font-size:12px;font-weight:600;margin-right:6px}.bad{background:#ffebe9;color:#cf222e}.ok{background:#dafbe1;color:#1a7f37}.tbl{width:100%;border-collapse:collapse;font-size:13px;margin-top:6px}th,td{border:1px solid #d0d7de;padding:7px 9px;text-align:left}th{background:#f6f8fa}.num{font-variant-numeric:tabular-nums}.big{font-size:34px;font-weight:700;line-height:1}.row{display:flex;gap:18px;flex-wrap:wrap;margin:8px 0}.pill{flex:1;min-width:180px;background:#fff;border:1px solid #d0d7de;border-radius:8px;padding:14px 16px}a{color:#0969da;text-decoration:none}.note{font-size:12px;color:#57606a;margin-top:8px}code{background:#eff1f3;padding:1px 5px;border-radius:3px;font-size:12px}</style>
+</head><body>
+<header><h1>GitHub Bounty「继续放大」逆转诊断</h1></header>
+<div class="wrap">
+
+<div class="card">
+  <span class="k bad">核心反转</span>
+  <div class="row" style="margin-top:10px">
+    <div class="pill"><div class="big">0</div><div>实时未认领 present-utility</div></div>
+    <div class="pill"><div class="big">99→0</div><div>「未认领池」是 search 索引延迟幻觉</div></div>
+    <div class="pill"><div class="big">10</div><div>本会话真实交付的 PR（已核验）</div></div>
+  </div>
+  <div class="note">原计划的 kangxi+other 共 99 个 PR 批量从未落地：后台任务丢失，且目标 issue 早已被认领。全量实时扫描 1121 个 open issue 后，仅 3 个 comments==0，无一属于可批量实现的 present-utility 流。</div>
+</div>
+
+<h2>一、为什么「99 未认领」是假的</h2>
+<div class="card">
+  <p style="margin:0 0 8px">用三种口径交叉验证同一仓库：</p>
+  <table class="tbl">
+    <tr><th>口径</th><th>结果</th><th>可信度</th></tr>
+    <tr><td><code>search ... comments:0</code></td><td>返回 31 个 present issue</td><td class="bad">低（索引延迟，实时 comments 全 ≥1）</td></tr>
+    <tr><td>实时 <code>GET /issues/{n}</code> 校验这 31 个</td><td>comments 全 ≥1，0 可认领</td><td class="ok">高</td></tr>
+    <tr><td>全量 REST 翻页 1121 open issue 实时统计</td><td>仅 3 个 comments==0，0 个 present-utility</td><td class="ok">最高（地面真相）</td></tr>
+  </table>
+  <div class="note">GitHub 搜索索引最终一致，批量任务前若只看搜索计数，会高估未认领池几个数量级。</div>
+</div>
+
+<h2>二、本会话真实交付（已核验）</h2>
+<div class="card">
+  <p style="margin:0 0 8px">10 个 hiragana PR，全部 <span class="k ok">open</span> / <span class="k ok">clean</span> / 文件正确，等待维护者合入。</p>
+  <table class="tbl">
+    <tr><th>PR</th><th>字母</th><th>状态</th><th>mergeable</th></tr>
+    <tr><td><a href="https://github.com/xevrion-v2/agent-playground/pull/6989">#6989</a></td><td>su</td><td>open</td><td>clean</td></tr>
+    <tr><td><a href="https://github.com/xevrion-v2/agent-playground/pull/6990">#6990</a></td><td>zi</td><td>open</td><td>clean</td></tr>
+    <tr><td><a href="https://github.com/xevrion-v2/agent-playground/pull/6991">#6991</a></td><td>si</td><td>open</td><td>clean</td></tr>
+    <tr><td><a href="https://github.com/xevrion-v2/agent-playground/pull/6992">#6992</a></td><td>za</td><td>open</td><td>clean</td></tr>
+    <tr><td><a href="https://github.com/xevrion-v2/agent-playground/pull/6993">#6993</a></td><td>sa</td><td>open</td><td>clean</td></tr>
+    <tr><td><a href="https://github.com/xevrion-v2/agent-playground/pull/6994">#6994</a></td><td>ko</td><td>open</td><td>clean</td></tr>
+    <tr><td><a href="https://github.com/xevrion-v2/agent-playground/pull/6995">#6995</a></td><td>go</td><td>open</td><td>clean</td></tr>
+    <tr><td><a href="https://github.com/xevrion-v2/agent-playground/pull/6996">#6996</a></td><td>ge</td><td>open</td><td>clean</td></tr>
+    <tr><td><a href="https://github.com/xevrion-v2/agent-playground/pull/6997">#6997</a></td><td>ke</td><td>open</td><td>clean</td></tr>
+    <tr><td><a href="https://github.com/xevrion-v2/agent-playground/pull/6998">#6998</a></td><td>gu</td><td>open</td><td>clean</td></tr>
+  </table>
+  <div class="note">潜在价值约 $500（每 PR ~$50，仅合并后支付，非保证到账）。</div>
+</div>
+
+<h2>三、技能已修正（github-bounty-submit/references/platforms.md）</h2>
+<div class="card">
+  <ul style="margin:0;padding-left:18px;line-height:1.8">
+    <li><b>写操作必须走 fork</b>：分支创建与文件 PUT 指向 <code>minhchee/agent-playground</code>，PR head 用 <code>minhchee:分支</code>。上游返回 404 是 GitHub 隐藏无权限仓库，非偶发。</li>
+    <li><b>search 索引延迟警示</b>：以实时 <code>GET /issues/{n}</code> 校验 <code>comments==0</code>，勿信搜索计数的「未认领池规模」。</li>
+    <li><b>present 池枯竭标注</b>：2026-07-14 起该流实时 0 未认领，放大需换任务类型或仓库。</li>
+  </ul>
+</div>
+
+<h2>四、下一步（待圣上定）</h2>
+<div class="card">
+  <table class="tbl">
+    <tr><th>路径</th><th>说明</th><th>预期</th></tr>
+    <tr><td>A. 等合入落袋</td><td>维护者合入 10 个 hiragana PR</td><td>$500，被动等待</td></tr>
+    <tr><td>B. 换任务类型</td><td>仓库内剩 1 个可实现 bug（"API entrypoint starts server on import"）</td><td>单点，可能 contested</td></tr>
+    <tr><td>C. 换仓库</td><td>MergeOS（验证赏金）/ HELPDESK.AI（GSSoC）/ Algora.io（真实 USD，需 Stripe+KYC）</td><td>重新开流</td></tr>
+  </table>
+  <div class="note">推荐 C：Algora.io 是真实美元、Stripe 付款，但需先绑定 Stripe 并通过 KYC 才能收款。Aigen 创始人已失活，不建议再投。</div>
+</div>
+
+<p class="note">数据来源：GitHub REST API（search/issues、issues、pulls、contents），2026-07-14 实时拉取，未采用任何缓存假设。搜索计数与实时状态差异已显式标注。</p>
+</div></body></html>
